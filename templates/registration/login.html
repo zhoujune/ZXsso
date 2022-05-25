@@ -1,0 +1,36 @@
+<!-- templates/registration/login.html -->
+
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<form >
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
+</form>
+<input type="hidden" name="next" value="{{ next }}" />
+
+<body>
+
+
+  <div id="id01" class="modal">
+      <form class="modal-content" method="post">
+      <div class="container">
+        
+        <h1>志向科技智慧校园身份认证</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+  
+  
+        <div class="clearfix">
+          <button type="submit" class="signupbtn">登录</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <script>
+  </script>
+  
+  </body>
+  {% endblock %}

@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div id="id01" class="modal">
+  <form class="modal-content" action="/action_page.php">
+  <div class="container">
+    <h1>登录成功，您好 {{ user.username }}!</h1>
+    <a href="{% url 'logout' %}">登出</a>
+
+  </div>
+</form>
+</div>
+{% else %}
+
+<body>
+
+
+<div id="id01" class="modal">
+    <form class="modal-content" action="/action_page.php">
+    <div class="container">
+      <h1>您没有登录</h1>
+      <p><a href="{% url 'login' %}">点击此处登录</a></p>
+      
+    </div>
+  </form>
+</div>
+
+<script>
+</script>
+
+</body>
+{% endif %}
+{% endblock %}
