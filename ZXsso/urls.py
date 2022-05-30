@@ -20,6 +20,7 @@ from django.views.generic.base import TemplateView
 from .views import ApiEndpoint
 from django.conf import settings
 import oauth2_provider.views as oauth2_views
+from django.conf.urls.static import static
 
 # OAuth2 provider endpoints
 oauth2_endpoint_views = [
@@ -51,4 +52,4 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
     path('api/getCurrentUsername', ApiEndpoint.as_view()),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
